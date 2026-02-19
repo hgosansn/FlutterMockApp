@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart' as prov;
 
-import '../../auth/provider/auth_provider.dart';
-
 /// Manages the welcome message fetched from Firestore for the current user.
 class HomeProvider extends prov.ChangeNotifier {
   final FirebaseFirestore _firestore;

@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
 import 'app/app.dart';
-import 'config/app_config.dart';
 import 'features/auth/provider/auth_provider.dart';
 
 Future<void> main() async {

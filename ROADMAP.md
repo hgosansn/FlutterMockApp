@@ -30,7 +30,7 @@ This roadmap is focused on a **working prototype delivery pipeline**: basic Flut
 - [x] Manage Firebase/GCP resources through Terraform where supported.
 - [x] Add remote state backend and state locking strategy.
 - [x] Add variables/secrets strategy (`tfvars` + secret manager).
-- [x] Add validation and plan checks in CI.
+- [ ] Add Terraform `fmt` / `validate` / `plan` checks in CI (requires GCP service-account secret).
 
 ## Phase 4 — Fastlane for Store Delivery
 
@@ -42,9 +42,10 @@ This roadmap is focused on a **working prototype delivery pipeline**: basic Flut
 
 ## Phase 5 — ACI Automation (Build + Release)
 
-- [x] Create ACI workflow to run Flutter build/test steps.
-- [x] Add Terraform `fmt` / `validate` / `plan` stage.
-- [x] Add Fastlane stage gated by branch/tag policy.
+- [x] Create ACI workflow to run Flutter analyze & test steps (CI passes on every push/PR).
+- [ ] Add Terraform `fmt` / `validate` / `plan` stage in CI.
+- [ ] Add Fastlane `test` lane in CI (dry-run, no Play upload).
+- [x] Add Fastlane stage gated by branch/tag policy (release workflow).
 - [x] Add artifact retention and version tagging convention.
 - [x] Add release notifications (Slack/Email/Git provider).
 

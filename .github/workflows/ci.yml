@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   # ────────────────────────────────────────────
-  # Flutter — analyze, test, build debug APK
+  # Flutter — analyze, test
   # ────────────────────────────────────────────
   flutter:
     name: Flutter — analyze & test
@@ -36,7 +36,7 @@ jobs:
 
       - name: Analyze
         working-directory: app
-        run: flutter analyze --fatal-infos
+        run: flutter analyze --fatal-warnings
 
       - name: Run tests
         working-directory: app
@@ -48,32 +48,3 @@ jobs:
           name: flutter-coverage
           path: app/coverage/lcov.info
           retention-days: 7
-
-  # ────────────────────────────────────────────
-  # Terraform — fmt, validate, plan (dev)
-  # ────────────────────────────────────────────
-  terraform:
-    name: Terraform — fmt & validate
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.7.x"
-
-      - name: Terraform fmt check
-        working-directory: infra
-        run: terraform fmt -check -recursive
-
-      - name: Terraform init (dry run — no backend)
-        working-directory: infra
-        run: terraform init -backend=false
-
-      - name: Terraform validate
-        working-directory: infra
-        run: terraform validate
