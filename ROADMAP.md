@@ -11,10 +11,10 @@ This roadmap is focused on a **working prototype delivery pipeline**: basic Flut
 
 ## Phase 1 — Flutter App Foundation
 
-- [ ] Create Flutter app structure with environments (`dev`, `staging`, `prod`).
-- [ ] Add minimal navigation and one basic interactive screen.
-- [ ] Add state management (simple provider/bloc choice) for maintainability.
-- [ ] Add app configuration layer for Firebase and backend toggles.
+- [x] Create Flutter app structure with environments (`dev`, `staging`, `prod`).
+- [x] Add minimal navigation and one basic interactive screen.
+- [x] Add state management (simple provider/bloc choice) for maintainability.
+- [x] Add app configuration layer for Firebase and backend toggles.
 
 ## Phase 2 — Firebase Backend
 
