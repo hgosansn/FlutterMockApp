@@ -1,0 +1,82 @@
+# fastlane/Fastfile
+#
+# Lanes:
+#   beta        — build release APK + upload to Play Console internal track
+#   production  — promote internal → production (manual gate)
+
+default_platform(:android)
+
+platform :android do
+  # ──────────────────────────────────────────────
+  # Shared: bump build number from CI run number
+  # ──────────────────────────────────────────────
+  before_all do
+    @version_name = ENV["VERSION_NAME"] || "0.1.0"
+    @version_code = (ENV["BUILD_NUMBER"] || "1").to_i
+  end
+
+  # ──────────────────────────────────────────────
+  # test — static analysis + unit tests only
+  # ──────────────────────────────────────────────
+  lane :test do
+    Dir.chdir("../app") do
+      sh("flutter analyze")
+      sh("flutter test")
+    end
+  end
+
+  # ──────────────────────────────────────────────
+  # beta — build, sign, upload to internal track
+  # ──────────────────────────────────────────────
+  lane :beta do
+    # 1. Run tests first
+    test
+
+    # 2. Build signed release APK
+    Dir.chdir("../app") do
+      sh(
+        "flutter build apk --release " \
+        "--dart-define=APP_ENV=staging " \
+        "--build-name=#{@version_name} " \
+        "--build-number=#{@version_code}"
+      )
+    end
+
+    # 3. Upload to Play Console internal testing track
+    upload_to_play_store(
+      track: "internal",
+      apk: "app/build/app/outputs/flutter-apk/app-release.apk",
+      json_key: ENV["PLAY_STORE_JSON_KEY"],
+      package_name: "com.example.fluttermockapp",
+      version_code: @version_code,
+    )
+
+    UI.success("✅ Beta #{@version_name}+#{@version_code} uploaded to Play internal track.")
+  end
+
+  # ──────────────────────────────────────────────
+  # production — promote from internal to production
+  # ──────────────────────────────────────────────
+  lane :production do
+    upload_to_play_store(
+      track: "internal",
+      track_promote_to: "production",
+      json_key: ENV["PLAY_STORE_JSON_KEY"],
+      package_name: "com.example.fluttermockapp",
+      version_code: @version_code,
+      skip_upload_apk: true,
+      skip_upload_metadata: false,
+      skip_upload_images: false,
+      skip_upload_screenshots: false,
+    )
+
+    UI.success("✅ Version #{@version_name}+#{@version_code} promoted to production.")
+  end
+
+  # ──────────────────────────────────────────────
+  # Error handler — post to GitHub step summary
+  # ──────────────────────────────────────────────
+  error do |lane, exception|
+    UI.error("❌ Lane #{lane} failed: #{exception.message}")
+  end
+end

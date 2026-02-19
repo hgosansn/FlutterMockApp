@@ -1,0 +1,47 @@
+# Flutter / Dart
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
+app/build/
+app/coverage/
+app/android/.gradle/
+app/android/key.properties
+app/android/keystore.jks
+app/android/app/google-services.json
+app/ios/GoogleService-Info.plist
+
+# Terraform
+infra/.terraform/
+infra/*.tfplan
+infra/tfplan
+infra/**/.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfvars.backup
+
+# Secrets — never commit these
+**/service-account-key.json
+**/*-key.json
+**/*.p12
+**/*.keystore
+**/*.jks
+
+# Node / Firebase Functions
+firebase/functions/node_modules/
+firebase/functions/lib/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+vendor/bundle/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.iml

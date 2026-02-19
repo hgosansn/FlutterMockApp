@@ -1,0 +1,6 @@
+FlutterMockApp is a delivery-focused prototype designed to validate a full end-to-end mobile release pipeline.
+
+Features:
+- Google Sign-In via Firebase Authentication
+- Personalised welcome message from Firestore
+- Clean Material 3 UI with Flutter

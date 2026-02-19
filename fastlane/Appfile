@@ -1,0 +1,4 @@
+# fastlane/Appfile
+# App-level identifiers used across all lanes.
+
+package_name("com.example.fluttermockapp")

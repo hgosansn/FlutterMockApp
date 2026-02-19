@@ -1,0 +1,1 @@
+A Flutter prototype demonstrating a full end-to-end mobile release pipeline with Firebase backend and automated store delivery.
