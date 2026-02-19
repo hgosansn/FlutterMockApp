@@ -4,10 +4,10 @@ This roadmap is focused on a **working prototype delivery pipeline**: basic Flut
 
 ## Phase 0 — Product and Delivery Baseline
 
-- [ ] Define prototype scope (single happy-path interaction only).
-- [ ] Define target platforms for release (`android`, `ios`, or both).
-- [ ] Confirm delivery channel strategy (internal testing vs production tracks).
-- [ ] Define ACI pipeline success criteria (build, sign, upload, notify).
+- [x] Define prototype scope (single happy-path interaction only).
+- [x] Define target platforms for release (`android`, `ios`, or both).
+- [x] Confirm delivery channel strategy (internal testing vs production tracks).
+- [x] Define ACI pipeline success criteria (build, sign, upload, notify).
 
 ## Phase 1 — Flutter App Foundation
 
