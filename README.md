@@ -2,7 +2,6 @@
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![CI](https://img.shields.io/github/actions/workflow/status/hgosansn/FlutterMockApp/ci.yml?branch=main&label=CI&logo=github)](https://github.com/hgosansn/FlutterMockApp/actions)
 
 A **Flutter prototype** designed for local testing and feature validation. The goal is to establish a robust **development mode** workflow for a standalone application before considering backend integration or automated store delivery.
 
