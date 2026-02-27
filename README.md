@@ -11,9 +11,9 @@ A **Flutter prototype** designed for local testing and feature validation. The g
 ## Overview
 
 <div align="center">
-  <img src="assets/screenshots/home.svg" width="200" />
-  <img src="assets/screenshots/profile.svg" width="200" />
-  <img src="assets/screenshots/counter.svg" width="200" />
+  <img src="assets/screenshots/home.png" width="200" />
+  <img src="assets/screenshots/profile.png" width="200" />
+  <img src="assets/screenshots/counter.png" width="200" />
 </div>
 
 FlutterMockApp is a delivery-focused prototype designed to validate a standalone mobile app flow. The immediate goal is a single happy-path interaction running on a local development environment (Web, Desktop, or Simulator).
