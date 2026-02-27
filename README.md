@@ -1,28 +1,28 @@
 # FlutterMockApp
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
-[![Firebase](https://img.shields.io/badge/Firebase-backend-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com)
-[![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?logo=terraform&logoColor=white)](https://www.terraform.io)
-[![Fastlane](https://img.shields.io/badge/Fastlane-delivery-00F200?logo=fastlane&logoColor=white)](https://fastlane.tools)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/hgosansn/FlutterMockApp/ci.yml?branch=main&label=CI&logo=github)](https://github.com/hgosansn/FlutterMockApp/actions)
 
-A **Flutter prototype** wired to a **Firebase** backend, with cloud infrastructure managed by **Terraform** and automated store delivery through **Fastlane** + **ACI** (Automated CI pipeline).
+A **Flutter prototype** designed for local testing and feature validation. The goal is to establish a robust **development mode** workflow for a standalone application before considering backend integration or automated store delivery.
 
 ---
 
 ## Overview
 
-FlutterMockApp is a delivery-focused prototype designed to validate a full end-to-end mobile release pipeline. The goal is a single happy-path interaction running on Android (and optionally iOS), deployed automatically from a clean commit to a store test track.
+<div align="center">
+  <img src="assets/screenshots/home.svg" width="200" />
+  <img src="assets/screenshots/profile.svg" width="200" />
+  <img src="assets/screenshots/counter.svg" width="200" />
+</div>
+
+FlutterMockApp is a delivery-focused prototype designed to validate a standalone mobile app flow. The immediate goal is a single happy-path interaction running on a local development environment (Web, Desktop, or Simulator).
 
 | Layer | Technology |
 |---|---|
 | Mobile App | Flutter (Dart) |
-| Auth & Database | Firebase Authentication + Firestore |
-| Serverless | Firebase Cloud Functions |
-| Infrastructure as Code | Terraform (GCP/Firebase) |
-| Store Delivery | Fastlane (Play Console / App Store Connect) |
-| CI/CD | ACI pipeline |
+| State Management | Provider |
+| CI/CD | GitHub Actions (Testing) |
 
 ---
 
@@ -30,31 +30,30 @@ FlutterMockApp is a delivery-focused prototype designed to validate a full end-t
 
 See [`ROADMAP.md`](ROADMAP.md) for the full phased delivery plan:
 
-- **Phase 0** — Product & Delivery Baseline
-- **Phase 1** — Flutter App Foundation
-- **Phase 2** — Firebase Backend
-- **Phase 3** — Terraform Infrastructure as Code
-- **Phase 4** — Fastlane Store Delivery
-- **Phase 5** — ACI Automation
-- **Phase 6** — Security, Quality & Operations
-- **Phase 7** — Go-Live Readiness
+- **Phase 1** — Development Environment & Core App (Current Focus)
+- **Phase 2** — Quality & Testing
+- **Phase 3** — Native Platform Configuration (Deferred)
+- **Phase 4** — CI Automation (Build & Test)
+- **Phase 5** — Go-Live Readiness
 
 ---
 
 ## Getting Started
 
-> 🚧 Project is in early setup phase. Instructions will be updated as each phase is completed.
+> 🚧 The project is currently focusing on getting the local environment ready for **development mode** testing.
 
 ```bash
 # Clone the repo
 git clone https://github.com/hgosansn/FlutterMockApp.git
-cd FlutterMockApp
+cd FlutterMockApp/app
 
-# Install Flutter dependencies (once Flutter app is scaffolded)
+# Ensure Flutter SDK is installed.
+
+# Install Flutter dependencies
 flutter pub get
 
-# Run on device/emulator
-flutter run
+# Run the app in development mode
+flutter run -t lib/main.dart --flavor dev
 ```
 
 ---
@@ -63,13 +62,28 @@ flutter run
 
 ```
 FlutterMockApp/
-├── app/                  # Flutter source (added in Phase 1)
-├── infra/                # Terraform modules (added in Phase 3)
-├── fastlane/             # Fastlane lanes (added in Phase 4)
-├── .github/workflows/    # ACI pipeline definitions (added in Phase 5)
+├── app/                  # Flutter source
 ├── ROADMAP.md            # Phased delivery checklist
 └── AGENTS.md             # Agent operating rules
 ```
+
+
+## What works right now
+
+```
+  cd ./app
+  flutter emulators --launch Medium_Phone_API_36.1
+  flutter run -d emulator-5554 --debug --android-skip-build-dependency-validation
+```
+
+### Fixes to be applied
+
+  Long-term fix (so you can remove the skip flag):
+
+
+  - Update app/android/settings.gradle: com.android.application from 8.1.0 to at least 8.1.1 (prefer newer stable).
+  - Update app/android/gradle/wrapper/gradle-wrapper.properties to Gradle 8.7+.
+
 
 ---
 

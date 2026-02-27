@@ -7,16 +7,12 @@ class AppConfig {
   const AppConfig({
     required this.environment,
     required this.appName,
-    required this.apiBaseUrl,
-    required this.firebaseProjectId,
-    this.enableAnalytics = false,
+    this.enableMockData = true,
   });
 
   final Environment environment;
   final String appName;
-  final String apiBaseUrl;
-  final String firebaseProjectId;
-  final bool enableAnalytics;
+  final bool enableMockData;
 
   // ---------------------------------------------------------------------------
   // Convenience factories per flavor
@@ -25,25 +21,19 @@ class AppConfig {
   factory AppConfig.dev() => const AppConfig(
         environment: Environment.dev,
         appName: 'FlutterMockApp (dev)',
-        apiBaseUrl: 'https://dev-api.fluttermockapp.example.com',
-        firebaseProjectId: 'flutter-mock-app-dev',
-        enableAnalytics: false,
+        enableMockData: true,
       );
 
   factory AppConfig.staging() => const AppConfig(
         environment: Environment.staging,
         appName: 'FlutterMockApp (staging)',
-        apiBaseUrl: 'https://staging-api.fluttermockapp.example.com',
-        firebaseProjectId: 'flutter-mock-app-staging',
-        enableAnalytics: false,
+        enableMockData: true,
       );
 
   factory AppConfig.prod() => const AppConfig(
         environment: Environment.prod,
         appName: 'FlutterMockApp',
-        apiBaseUrl: 'https://api.fluttermockapp.example.com',
-        firebaseProjectId: 'flutter-mock-app-prod',
-        enableAnalytics: true,
+        enableMockData: false,
       );
 
   bool get isDev => environment == Environment.dev;

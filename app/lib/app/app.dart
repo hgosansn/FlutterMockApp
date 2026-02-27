@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../core/config/app_config.dart';
 import '../core/router/app_router.dart';
 import '../features/counter/providers/counter_provider.dart';
+import '../features/home/providers/dashboard_provider.dart';
 
 /// Root application widget.
 ///
@@ -23,12 +24,13 @@ class App extends StatelessWidget {
 
         // Feature providers
         ChangeNotifierProvider(create: (_) => CounterProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardProvider()..initialize()),
       ],
       child: MaterialApp.router(
         title: config.appName,
         debugShowCheckedModeBanner: config.isDev,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 86, 192, 111)),
           useMaterial3: true,
         ),
         routerConfig: AppRouter.router,

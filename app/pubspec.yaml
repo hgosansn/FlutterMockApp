@@ -1,5 +1,5 @@
 name: flutter_mock_app
-description: "FlutterMockApp — cross-platform prototype with Firebase, Terraform, and Fastlane delivery."
+description: "FlutterMockApp — standalone Flutter prototype designed for local testing and feature validation."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -16,6 +16,8 @@ dependencies:
   provider: ^6.1.2
   # Declarative routing
   go_router: ^14.6.2
+  flutter_animate: ^4.5.2
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:

@@ -1,16 +1,58 @@
-# flutter_mock_app
+# FlutterMockApp
 
-A new Flutter project.
+A sophisticated Flutter prototype demonstrating modern mobile UI/UX patterns, advanced animations, and robust architecture.
 
-## Getting Started
+## 🚀 Vision
 
-This project is a starting point for a Flutter application.
+To serve as a high-fidelity reference for building modern, performant, and visually stunning Flutter applications using industry-standard practices.
 
-A few resources to get you started if this is your first Flutter project:
+## 🗺️ Roadmap
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Phase 1: Foundation & Modern UI (Current)
+- [x] Multi-flavor environment setup (Dev, Staging, Prod).
+- [x] Declarative routing with `go_router`.
+- [x] State management with `provider`.
+- [x] **Modern UI Overhaul:**
+    - [x] Implement Glassmorphism and Backdrop filters.
+    - [x] Bento-style grid layouts for the Dashboard.
+    - [x] Custom implicit and explicit animations.
+    - [x] Dynamic color schemes and Material 3 integration.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Phase 2: Advanced Interactions
+- [ ] **Hero Transitions & Shared Elements:** Seamless transitions between screens.
+- [ ] **Custom Painters:** Unique UI components (charts, progress indicators).
+- [ ] **Micro-interactions:** Haptic feedback and subtle button animations.
+- [ ] **Gesture-driven UI:** Swipable cards and interactive bottom sheets.
+
+### Phase 3: Performance & Polish
+- [ ] **Slivers & Smooth Scrolling:** Implementing complex `CustomScrollView` layouts.
+- [ ] **Lottie & Rive Integration:** Rich vector animations.
+- [ ] **Adaptive Layouts:** Support for foldable devices and tablets.
+- [ ] **Accessibility:** Ensuring WCAG compliance and semantic labeling.
+
+## 🛠️ Tech Stack
+
+- **Framework:** Flutter (Material 3)
+- **State Management:** Provider
+- **Navigation:** GoRouter
+- **Styling:** Vanilla CSS-like layouts, Glassmorphism, Custom Shaders
+- **Testing:** Widget and Unit testing for core logic
+
+## 🏁 Getting Started
+
+1. **Clone the repo**
+2. **Install dependencies:** `flutter pub get`
+3. **Run the app:**
+   - Dev: `flutter run -t lib/main.dart`
+   - Prod: `flutter run -t lib/main_prod.dart`
+
+---
+
+## 🎨 UI/UX Directions
+
+We are moving away from standard Material templates towards a more **custom, fluid aesthetic**:
+
+1.  **Glassmorphism:** Using `BackdropFilter` and semi-transparent layers for depth.
+2.  **Bento Grids:** Organizing information in high-contrast, rounded containers.
+3.  **Soft Shadows:** Replacing harsh borders with subtle elevation and depth.
+4.  **Fluid Motion:** Every interaction should feel responsive and weighted.

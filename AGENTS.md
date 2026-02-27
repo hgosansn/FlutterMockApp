@@ -2,7 +2,7 @@
 
 ## Mission
 
-Deliver a Flutter prototype with Firebase backend, Terraform-managed cloud infrastructure, and automated store delivery via Fastlane + ACI.
+Deliver a standalone **Flutter prototype** with local testability and verification.
 
 Primary execution source: `ROADMAP.md`.
 
@@ -27,11 +27,11 @@ For each run cycle:
 
 1. Read `ROADMAP.md` and identify the first unchecked item.
 2. Propose the smallest implementation plan to complete that item.
-3. Implement code/infrastructure/docs changes.
-4. Run relevant validation (build/test/lint/plan).
+3. Implement code/testing changes.
+4. Run relevant validation (build/test/lint).
 5. Update `ROADMAP.md` and tick completed checkbox(es).
 6. Log what was delivered, evidence, and next checkbox target.
 
 ## Definition of Completion
 
-The mission is complete when all checkboxes in `ROADMAP.md` are checked and the prototype can be built and delivered automatically through ACI + Fastlane to target store tracks.
+The mission is complete when all checkboxes in `ROADMAP.md` are checked and the prototype can be built and tested locally in development mode.
